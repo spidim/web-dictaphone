@@ -19,13 +19,15 @@ const canvasCtx = canvas.getContext("2d");
 
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
-
-  const constraints = { audio: true };
+  const audioConstraints = {
+  "channelCount": 2
+  }
+  const constraints = { audio: audioConstraints }
   let chunks = [];
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.setAudioChannels(2);
+//    mediaRecorder.setAudioChannels(2);
 
     visualize(stream);
 
