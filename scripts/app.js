@@ -25,6 +25,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.setAudioChannels(2);
 
     visualize(stream);
 
